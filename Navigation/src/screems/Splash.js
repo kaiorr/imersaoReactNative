@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components/native';
 
 const Page = styled.SafeAreaView`
@@ -11,12 +11,41 @@ const Texto = styled.Text`
   font-size: 20px;
 `;
 
-const Splash = () => {
+const Botao = styled.Button``;
+
+const Input = styled.TextInput`
+  font-size: 15px;
+  font-weight: bold;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 200px;
+  height: 50px;
+  margin: 8px;
+  text-align: center;
+`;
+
+const Screen = (props) => {
+  const [nome, setNome] = useState('');
+
+  const fazerLogin = () => {
+    props.navigation.navigate('Login', {nome});
+  };
+
   return (
     <Page>
       <Texto>Bem Vindo(a)</Texto>
+
+      <Input value={nome} onChangeText={(e) => setNome(e)} />
+
+      <Botao title="Acessar" onPress={fazerLogin} />
     </Page>
   );
 };
 
-export default Splash;
+Screen.navigationOptions = () => {
+  return {
+    title: 'Bem vindo(a)'
+  }
+};
+
+export default Screen;
