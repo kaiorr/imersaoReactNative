@@ -11,10 +11,10 @@ const Texto = styled.Text`
   font-size: 20px;
 `;
 
-const Screen = () => {
+const Screen = (props) => {
   return (
     <Page>
-      <Texto>Bem-vindo</Texto>
+      <Texto>Bem-vindo {props.navigation.state.params.nome}</Texto>
     </Page>
   );
 };

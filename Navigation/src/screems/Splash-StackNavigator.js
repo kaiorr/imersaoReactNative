@@ -44,6 +44,8 @@ const Screen = (props) => {
 
 Screen.navigationOptions = () => {
   return {
+    headerTransparent: true,
+    title: ' ',
   };
 };
 
