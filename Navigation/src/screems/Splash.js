@@ -43,8 +43,7 @@ const Screen = (props) => {
 };
 
 Screen.navigationOptions = () => {
-  return {
-  };
+  return {};
 };
 
 export default Screen;
