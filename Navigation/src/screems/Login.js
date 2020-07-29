@@ -11,7 +11,7 @@ const Texto = styled.Text`
   font-size: 20px;
 `;
 
-const Login = (props) => {
+const Screen = (props) => {
   return (
     <Page>
       <Texto>Bem-vindo {props.navigation.state.params.nome}</Texto>
@@ -19,4 +19,10 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+Screen.navigationOptions = () => {
+  return {
+    title: 'Login',
+  };
+};
+
+export default Screen;

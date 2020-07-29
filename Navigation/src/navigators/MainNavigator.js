@@ -9,6 +9,12 @@ const MainNavigator = createStackNavigator({
   Login: {
     screen: Login,
   },
+  // },
+  // {
+  //   //opção para todas screens
+  //   // defaultNavigationOptions: {
+  //   //  headerBackTitleVisible: ''
+  //   // }
 });
 
 export default MainNavigator;

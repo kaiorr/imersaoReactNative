@@ -44,8 +44,9 @@ const Screen = (props) => {
 
 Screen.navigationOptions = () => {
   return {
-    title: 'Bem vindo(a)'
-  }
+    headerTransparent: true,
+    title: ' ',
+  };
 };
 
 export default Screen;
