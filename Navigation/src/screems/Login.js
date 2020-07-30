@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import TabBarIcon from '../components/TabBarIcon';
 
 const Page = styled.SafeAreaView`
   flex: 1;
@@ -21,7 +22,9 @@ const Screen = () => {
 
 Screen.navigationOptions = () => {
   return {
-    title: 'Login',
+    tabBarIcon: ({focused, tintColor}) => {
+      return <TabBarIcon focused={focused} route="Slash" badge={0} />;
+    },
   };
 };
 

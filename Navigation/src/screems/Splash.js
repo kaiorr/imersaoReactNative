@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components/native';
-import {FiLogIn, FiActivity} from 'react-icons/fi';
+import TabBarIcon from '../components/TabBarIcon';
 
 const Page = styled.SafeAreaView`
   flex: 1;
@@ -45,12 +45,9 @@ const Screen = (props) => {
 
 Screen.navigationOptions = () => {
   return {
-    tabBarIcon: ({focused}) => {
-      if (focused) {
-        return <FiActivity />;
-      } else {
-        return <FiLogIn />;
-      }
+    tabBarLabel: 'Bem vindo(a)',
+    tabBarIcon: ({focused, tintColor}) => {
+      return <TabBarIcon focused={focused} route="Slash" badge={5} />;
     },
   };
 };
