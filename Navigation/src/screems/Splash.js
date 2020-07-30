@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components/native';
+import {FiLogIn, FiActivity} from 'react-icons/fi';
 
 const Page = styled.SafeAreaView`
   flex: 1;
@@ -43,7 +44,15 @@ const Screen = (props) => {
 };
 
 Screen.navigationOptions = () => {
-  return {};
+  return {
+    tabBarIcon: ({focused}) => {
+      if (focused) {
+        return <FiActivity />;
+      } else {
+        return <FiLogIn />;
+      }
+    },
+  };
 };
 
 export default Screen;

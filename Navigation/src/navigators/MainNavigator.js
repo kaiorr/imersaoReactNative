@@ -9,16 +9,12 @@ const MainNavigator = createBottomTabNavigator(
   },
   {
     tabBarOptions: {
-      activeTinColor: '#cecece',
-      activeBackgroundColor: '#9b9b9b',
-      showLabel: true,
-      showIcon: true,
-      labelStyle: {
-        fontSize: 20,
-        fontWeight: 'bold',
-      },
-      labelPosition: 'below-icon',
+      activeTintColor: 'tomato',
+      inactiveTintColor: 'gray',
     },
+    labelPosition: 'below-icon',
+  },
+  {
     defaultNavigationOptions: {},
   },
 );
