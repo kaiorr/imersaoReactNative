@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CustamTabBar = styled.SafeAreaView`
+const CustomTabBar = styled.SafeAreaView`
   flex-direction: row;
   height: 100px;
   width: 100%;
@@ -21,14 +21,14 @@ const CustomTabBarItem = styled.Text`
 
 export default (props) => {
   return (
-    <CustamTabBar>
+    <CustomTabBar>
       {props.items.map((item, index) => {
         return (
           <CustomTabBarButton key={index} onPress={()=>props.navigation.navigate(item.route)}>
            <CustomTabBarItem> {item.text} </CustomTabBarItem>
           </CustomTabBarButton>
         );
-      });    
-    </CustamTabBar>
-  )
-};
+      })}
+    </CustomTabBar>
+  );
+}
