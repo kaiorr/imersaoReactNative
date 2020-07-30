@@ -26,30 +26,13 @@ const Input = styled.TextInput`
 `;
 
 const Screen = (props) => {
-  const [nome, setNome] = useState('');
-
-  const fazerLogin = () => {
-    props.navigation.navigate('Login', {nome});
-  };
-
   return (
     <Page>
       <Texto>Bem Vindo(a)</Texto>
-
-      <Input value={nome} onChangeText={(e) => setNome(e)} />
-
-      <Botao title="Acessar" onPress={fazerLogin} />
     </Page>
   );
 };
 
-Screen.navigationOptions = () => {
-  return {
-    tabBarLabel: 'Bem vindo(a)',
-    tabBarIcon: ({focused, tintColor}) => {
-      return <TabBarIcon focused={focused} route="Slash" badge={5} />;
-    },
-  };
-};
+Screen.navigationOptions = ({navigation}) => {};
 
 export default Screen;
