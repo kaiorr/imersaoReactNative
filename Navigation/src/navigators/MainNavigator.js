@@ -1,29 +1,10 @@
-import React from 'react';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
-import CustomTabBar from '../components/CustomTabBar';
-import Splash from '../screems/Splash';
-import Login from '../screems/Login';
+import HomeStack from '../navigators/HomeStack';
+import Config from '../screems/Config';
 
-const MainNavigator = createBottomTabNavigator(
-  {
-    Splash: {screen: Splash},
-    Login: {screen: Login},
-  },
-  {
-    tabBarOptions: {},
-    defaultNavigationOptions: {
-      tabBarComponent:(props)=>(
-        <CustomTabBar
-          {...props}
-          items={[
-            {text: 'Home', route: 'Splash'},
-            {text: 'About', route: 'Login'},
-            {text: 'Config', route: 'Splash'},
-          ]}
-        />
-      ),
-    },
-  },
-);
+const MainNavigator = createBottomTabNavigator({
+  Home: {screen: HomeStack},
+  Config: {screen: Config},
+});
 
 export default MainNavigator;

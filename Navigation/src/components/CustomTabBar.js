@@ -24,11 +24,13 @@ export default (props) => {
     <CustomTabBar>
       {props.items.map((item, index) => {
         return (
-          <CustomTabBarButton key={index} onPress={()=>props.navigation.navigate(item.route)}>
-           <CustomTabBarItem> {item.text} </CustomTabBarItem>
+          <CustomTabBarButton
+            key={index}
+            onPress={() => props.navigation.navigate(item.route)}>
+            <CustomTabBarItem> {item.text} </CustomTabBarItem>
           </CustomTabBarButton>
         );
       })}
     </CustomTabBar>
   );
-}
+};
