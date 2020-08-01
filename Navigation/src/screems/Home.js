@@ -9,10 +9,13 @@ const Texto = styled.Text`
   font-size: 15px;
 `;
 
-const Page = () => {
+const Butao = styled.Button``;
+
+const Page = (props) => {
   return (
     <Container>
       <Texto>Página Home</Texto>
+      <Butao title="Open" onPress={() => props.navigation.openDrawer()} />
     </Container>
   );
 };

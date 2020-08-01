@@ -1,9 +1,9 @@
 import {createBottomTabNavigator} from 'react-navigation-tabs';
-import HomeDrawer from '../navigators/HomeDrawer';
+import HomeStack from '../navigators/HomeStack';
 import Config from '../screems/Config';
 
 const MainNavigator = createBottomTabNavigator({
-  Home: {screen: HomeDrawer},
+  Home: {screen: HomeStack},
   Config: {screen: Config},
 });
 
