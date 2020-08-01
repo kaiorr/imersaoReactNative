@@ -1,6 +1,8 @@
+import React from 'react';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 import Home from '../screems/Home';
 import Perfil from '../screems/Perfil';
+import CustomDrawer from '../components/CustomDrawer';
 
 const HomeDrawer = createDrawerNavigator(
   {
@@ -12,14 +14,24 @@ const HomeDrawer = createDrawerNavigator(
     },
   },
   {
-    drawerPosition: 'left',
-    drawerType: 'slide',
-    drawerWidth: 70,
-    drawerBackgroundColor: '#FF0000',
-    edgeWidth: 150,
-    hideStatusBar: true,
-    overlayColor: 0.5
+    // eslint-disable-next-line prettier/prettier
+    contentComponent:(props)=><CustomDrawer {...props} />,
   },
+  // {
+  //   drawerPosition: 'left',
+  //   drawerType: 'slide',
+  //   drawerWidth: 150,
+  //   //drawerBackgroundColor: ECECE,
+  //   edgeWidth: 150,
+  //     contentOptions:{
+  //       itemStyle:{
+  //         heigth:100
+  //       },
+  //       labelStyle:{
+  //         fontSize: 19
+  //       }
+  //     },
+  // },
 );
 
 export default HomeDrawer;

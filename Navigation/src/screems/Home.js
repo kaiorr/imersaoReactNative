@@ -12,12 +12,7 @@ const Texto = styled.Text`
 const Butao = styled.Button``;
 
 const Page = (props) => {
-  return (
-    <Container>
-      <Texto>Página Home</Texto>
-      <Butao title="Open" onPress={() => props.navigation.openDrawer()} />
-    </Container>
-  );
+  return <Container />;
 };
 
 export default Page;
