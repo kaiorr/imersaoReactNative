@@ -1,14 +1,14 @@
-import React, {createContext, useReducer, useContext} from 'react';
-import {initalState, UserReducer} from '../reducers/UserReducer';
+import React, {createContext, useReducer} from 'react';
+import {initialState, UserReducer} from '../reducers/UserReducer';
 
 export const UserContext = createContext();
 
 export default ({children}) => {
-  const [state, dispatch] = useReducer(UserReducer, initalState);
+  const [state, dispatch] = useReducer(UserReducer, initialState);
 
   return (
-    <useContext.Provider value={{state, dispatch}}>
+    <UserContext.Provider value={{state, dispatch}}>
       {children}
-    </useContext.Provider>
+    </UserContext.Provider>
   );
 };
