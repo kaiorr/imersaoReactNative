@@ -17,7 +17,7 @@ export default () => {
       }
     };
     checkToken();
-  }, []);
+  });
 
   return (
     <Container>
