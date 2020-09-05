@@ -15,6 +15,7 @@ import {
 } from './style';
 
 import SignInput from '../../components/SignInput';
+import api from '../../services/api';
 
 export default () => {
   const navigation = useNavigation();
@@ -23,7 +24,19 @@ export default () => {
   const [nameField, setNameField] = useState('');
   const [passwordField, setPasswordField] = useState('');
 
-  const handleSignClick = () => {};
+  const handleSignClick = async () => {
+    if (nameField !== '' && emailField !== '' && passwordField !== '') {
+      let res = await api.signUp(nameField, emailField, passwordField);
+
+      if (res.token) {
+        alert('Deu certo 😉');
+      } else {
+        alert('Erro: ' + res.error);
+      }
+    } else {
+      alert('Preencha os campos');
+    }
+  };
 
   const handleMessageButtonClick = () => {
     navigation.reset({
