@@ -1,5 +1,7 @@
 import React from 'react';
 import BarberLogo from '../../assets/barber.svg';
+import EmailIcon from '../../assets/email.svg';
+import LockIcon from '../../assets/lock.svg';
 import {
   Container,
   InputArea,
@@ -10,22 +12,27 @@ import {
   SignMessageButtonTextBold,
 } from './style';
 
+import SignInput from '../../components/SignInput';
+
 export default () => {
   return (
     <Container>
-      <BarberLogo width="100%" heigth="160" />
+      <BarberLogo width="100%" height="160" />
 
       <InputArea>
-        <SignInput />
-        <SignInput />
+        <SignInput IconSvg={EmailIcon} placeholder="Digite seu email" />
+
+        <SignInput IconSvg={LockIcon} placeholder="Digite sua senha" />
 
         <CustomButton>
-          <CustomButtonText>Login</CustomButtonText>
+          <CustomButtonText>LOGIN</CustomButtonText>
         </CustomButton>
       </InputArea>
 
       <SignMessageButton>
-        <SignMessageButtonText>Ainda não possui conta?</SignMessageButtonText>
+        <SignMessageButtonText>
+          Ainda não possui uma conta?
+        </SignMessageButtonText>
         <SignMessageButtonTextBold>Cadastre-se</SignMessageButtonTextBold>
       </SignMessageButton>
     </Container>
