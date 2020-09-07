@@ -12,18 +12,18 @@ import {
   LocationFinder,
 } from './style';
 
-export default ({state}) => {
+export default () => {
   return (
     <Container>
       <Scroller>
-        <HeaderArea>
+        {/* <HeaderArea>
           <HeaderTitle numberOfLines={2}>
             Encontre o seu barbeiro favorito
           </HeaderTitle>
           <SearchButton>
             <SearchIcon width="26" height="26" fill="#fcfcfc" />
           </SearchButton>
-        </HeaderArea>
+        </HeaderArea> */}
 
         <LocationArea>
           <LocationInput
