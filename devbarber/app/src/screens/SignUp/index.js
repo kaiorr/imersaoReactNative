@@ -1,12 +1,8 @@
 import React, {useState, useContext} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import BarberLogo from '../../assets/barber.svg';
-import EmailIcon from '../../assets/email.svg';
-import LockIcon from '../../assets/lock.svg';
-import PersonIcon from '../../assets/person.svg';
 import AsyncStorage from '@react-native-community/async-storage';
-import UserContext from '../../contexts/UserContext';
 
+import {UserContext} from '../../contexts/UserContext';
 import {
   Container,
   InputArea,
@@ -18,25 +14,29 @@ import {
 } from './style';
 
 import SignInput from '../../components/SignInput';
+
 import api from '../../services/api';
 
-export default () => {
+import BarberLogo from '../../assets/barber.svg';
+import PersonIcon from '../../assets/person.svg';
+import EmailIcon from '../../assets/email.svg';
+import LockIcon from '../../assets/lock.svg';
+
+const SignUp = () => {
   const {dispatch: userDispatch} = useContext(UserContext);
   const navigation = useNavigation();
 
-  const [emailField, setEmailField] = useState('');
   const [nameField, setNameField] = useState('');
+  const [emailField, setEmailField] = useState('');
   const [passwordField, setPasswordField] = useState('');
 
   const handleSignClick = async () => {
-    if (nameField !== '' && emailField !== '' && passwordField !== '') {
+    if (nameField != '' && emailField != '' && passwordField != '') {
       let res = await api.signUp(nameField, emailField, passwordField);
 
       if (res.token) {
-        //salvando o token no storage do device
         await AsyncStorage.setItem('token', res.token);
 
-        //salvando o avatar no contexto para conseguir utilizar para o perfil do app
         userDispatch({
           type: 'setAvatar',
           payload: {
@@ -45,7 +45,7 @@ export default () => {
         });
 
         navigation.reset({
-          route: [{name: 'MainTab'}],
+          routes: [{name: 'MainTab'}],
         });
       } else {
         alert('Erro: ' + res.error);
@@ -75,7 +75,7 @@ export default () => {
 
         <SignInput
           IconSvg={EmailIcon}
-          placeholder="Digite seu email"
+          placeholder="Digite seu e-mail"
           value={emailField}
           onChangeText={(t) => setEmailField(t)}
         />
@@ -100,3 +100,5 @@ export default () => {
     </Container>
   );
 };
+
+export default SignUp;

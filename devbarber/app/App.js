@@ -4,7 +4,7 @@ import {StatusBar} from 'react-native';
 import UserContextProvider from './src/contexts/UserContext';
 import MainStack from './src/stacks/MainStack';
 
-export default () => {
+const App = () => {
   return (
     <>
       <StatusBar
@@ -20,3 +20,4 @@ export default () => {
     </>
   );
 };
+export default App;

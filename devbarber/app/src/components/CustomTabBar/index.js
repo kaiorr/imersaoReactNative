@@ -7,7 +7,7 @@ import TodayIcon from '../../assets/today.svg';
 import FavoriteIcon from '../../assets/favorite.svg';
 import AccountIcon from '../../assets/account.svg';
 
-export default ({state, navigation}) => {
+const CustomTabBar = ({state, navigation}) => {
   const {state: user} = useContext(UserContext);
 
   const goTo = (screenName) => {
@@ -66,3 +66,4 @@ export default ({state, navigation}) => {
     </TabArea>
   );
 };
+export default CustomTabBar;

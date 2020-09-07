@@ -1,9 +1,7 @@
 import React, {useState, useContext} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import BarberLogo from '../../assets/barber.svg';
-import EmailIcon from '../../assets/email.svg';
-import LockIcon from '../../assets/lock.svg';
 import AsyncStorage from '@react-native-community/async-storage';
+
 import {UserContext} from '../../contexts/UserContext';
 
 import {
@@ -16,26 +14,28 @@ import {
   SignMessageButtonTextBold,
 } from './style';
 
-import SignInput from '../../components/SignInput';
 import api from '../../services/api';
 
-export default () => {
-  const {dispatch: userDispatch} = useContext(UserContext);
+import SignInput from '../../components/SignInput';
 
+import BarberLogo from '../../assets/barber.svg';
+import EmailIcon from '../../assets/email.svg';
+import LockIcon from '../../assets/lock.svg';
+
+const SignIn = () => {
+  const {dispatch: userDispatch} = useContext(UserContext);
   const navigation = useNavigation();
 
   const [emailField, setEmailField] = useState('');
   const [passwordField, setPasswordField] = useState('');
 
   const handleSignClick = async () => {
-    if (emailField !== '' && passwordField !== '') {
+    if (emailField != '' && passwordField != '') {
       let json = await api.signIn(emailField, passwordField);
 
       if (json.token) {
-        //salvando o token no storage do device
         await AsyncStorage.setItem('token', json.token);
 
-        //salvando o avatar no contexto para conseguir utilizar para o perfil do app
         userDispatch({
           type: 'setAvatar',
           payload: {
@@ -47,10 +47,10 @@ export default () => {
           routes: [{name: 'MainTab'}],
         });
       } else {
-        alert('Deu Ruim 😵');
+        alert('E-mail e/ou senha errados!');
       }
     } else {
-      alert('Preencha os campos');
+      alert('Preencha os campos!');
     }
   };
 
@@ -67,7 +67,7 @@ export default () => {
       <InputArea>
         <SignInput
           IconSvg={EmailIcon}
-          placeholder="Digite seu email"
+          placeholder="Digite seu e-mail"
           value={emailField}
           onChangeText={(t) => setEmailField(t)}
         />
@@ -94,3 +94,5 @@ export default () => {
     </Container>
   );
 };
+
+export default SignIn;

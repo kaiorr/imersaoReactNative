@@ -8,7 +8,7 @@ import MainTab from '../stacks/MainTab';
 
 const Stack = createStackNavigator();
 
-export default () => (
+const MainStack = () => (
   <Stack.Navigator
     initialRouteName="Preload"
     screenOptions={{
@@ -20,3 +20,5 @@ export default () => (
     <Stack.Screen name="MainTab" component={MainTab} />
   </Stack.Navigator>
 );
+
+export default MainStack;

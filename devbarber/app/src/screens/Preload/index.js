@@ -6,7 +6,7 @@ import {useNavigation} from '@react-navigation/native';
 import api from '../../services/api';
 import {UserContext} from '../../contexts/UserContext';
 
-export default () => {
+const Preload = () => {
   const {dispatch: userDispatch} = useContext(UserContext);
 
   const navigation = useNavigation();
@@ -49,3 +49,4 @@ export default () => {
     </Container>
   );
 };
+export default Preload;

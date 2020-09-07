@@ -11,7 +11,7 @@ import Profile from '../screens/Profile';
 
 const Tab = createBottomTabNavigator();
 
-export default () => (
+const MainTab = () => (
   <Tab.Navigator tabBar={(props) => <CustomTabBar {...props} />}>
     <Tab.Screen name="Home" component={Home} />
     <Tab.Screen name="Search" component={Search} />
@@ -20,3 +20,5 @@ export default () => (
     <Tab.Screen name="Profile" component={Profile} />
   </Tab.Navigator>
 );
+
+export default MainTab;
